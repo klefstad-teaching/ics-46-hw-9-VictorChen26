@@ -8,8 +8,8 @@
 #include <algorithm>
 using namespace std;
 
-vector<int> dijkstra_shortest_path(Graph& graph, int source, vector<int>& previous) {    
-    int numVertices = graph.size();
+vector<int> dijkstra_shortest_path(const Graph& G, int source, vector<int>& previous){
+    int numVertices = G.numVertices;
     vector<int> distances(numVertices, INF);
     vector<bool> visited(numVertices, false);
     
@@ -17,7 +17,7 @@ vector<int> dijkstra_shortest_path(Graph& graph, int source, vector<int>& previo
     previous[source] = -1;
     
     priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> minHeap;
-    minHeap.push({0, source});
+    minHeap.push(make_pair(0, source));
     
     while (!minHeap.empty()) {
         int u = minHeap.top().second;
@@ -33,7 +33,7 @@ vector<int> dijkstra_shortest_path(Graph& graph, int source, vector<int>& previo
             if (!visited[v] && distances[u] + weight < distances[v]) {
                 distances[v] = distances[u] + weight;
                 previous[v] = u;
-                minHeap.push({distances[v], v});
+                minHeap.push(make_pair(distances[v], v));
             }
         }
     }

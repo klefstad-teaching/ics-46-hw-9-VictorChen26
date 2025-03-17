@@ -79,7 +79,7 @@ void load_words(set<string> & word_list, const string& file_name){
         error(file_name, "", "file cannot be opened.");
     string in;
     while (infile >> in)
-        word_list.insert(word);
+        word_list.insert(in);
     file.close();
 }
 
