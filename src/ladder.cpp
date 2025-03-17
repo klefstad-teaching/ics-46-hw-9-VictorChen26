@@ -17,7 +17,7 @@ void error(string word1, string word2, string msg){
 
 bool edit_distance_within(const std::string& str1, const std::string& str2, int d){
     if(str1 == str2)
-        return false;
+        return true;
     int n1 = str1.size();
     int n2 = str2.size();
     if (abs(n1 - n2) > 1)
