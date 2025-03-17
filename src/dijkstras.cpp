@@ -8,7 +8,7 @@
 #include <algorithm>
 using namespace std;
 
-vector<int> dijkstraShortestPath(Graph& graph, int source, vector<int>& previous) {    
+vector<int> dijkstra_shortest_path(Graph& graph, int source, vector<int>& previous) {    
     int numVertices = graph.size();
     vector<int> distances(numVertices, INF);
     vector<bool> visited(numVertices, false);
